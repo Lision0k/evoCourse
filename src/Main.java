@@ -27,6 +27,8 @@ public class Main {
         System.out.println("Дата после сдвига на начало года: " + sdf.format(date));
 
         //Увеличить дату на 10 рабочих дней (считаем субботы и воскресенья выходными) и вывести на экран
+        date = sdf.parse(str);
+        calendar.setTime(date);
         int day, count = 0;
         while(count<10){
             day = calendar.get(Calendar.DAY_OF_WEEK);
