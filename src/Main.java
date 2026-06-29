@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 class User {
     private String name;
@@ -44,9 +41,12 @@ public class Main {
         Scanner in = new Scanner(System.in);
         System.out.print("Введите требуемый возраст: ");
         int age = in.nextInt();
-        if(users.containsKey(age))
-            for(User user : users.get(age))
+        if(users.containsKey(age)) {
+            List<User> names = users.get(age);
+            Collections.sort(names, Comparator.comparing(User::getName));
+            for (User user : names)
                 System.out.println(user.toString());
+        }
         else System.out.printf("Пользователь с возрастом '%d' не найден", age);
     }
 }
