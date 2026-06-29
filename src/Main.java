@@ -12,15 +12,10 @@ public class Main {
         String str = in.nextLine();
         System.out.print("Введите подстроку: ");
         String sub_str = in.nextLine();
-        int counter = 0;
-        while (true){
-            if(str.contains(sub_str)){
-                str = str.substring(str.indexOf(sub_str)+sub_str.length());
-                counter++;
-            }
-            else break;
-        }
-        System.out.printf("Подстрока '%s' встречается %d раз(а)\n\n", sub_str, counter);
+        String[] arr = str.split(sub_str);
+        if(str.endsWith(sub_str))
+            System.out.printf("Подстрока '%s' встречается %d раз(а)\n\n", sub_str, arr.length);
+        else System.out.printf("Подстрока '%s' встречается %d раз(а)\n\n", sub_str, arr.length-1);
 
         //Заменить в строке все слова "кака" и "бяка" на "вырезано цензурой"
         System.out.println("Введите строку:");
